@@ -15,10 +15,10 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Employee {
 
-    @Id
-    @Column(name = "businessentityid")
-    private Integer businessentityId;
+  @Id
+  @Column(name = "businessentityid")
+  private Integer businessentityId;
 
-    @Column(name = "loginid")
-    private String loginId;
+  @Column(name = "loginid")
+  private String loginId;
 }

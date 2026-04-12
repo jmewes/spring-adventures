@@ -12,10 +12,10 @@ import org.springframework.modulith.docs.Documenter;
  */
 class DocumentationWriter {
 
-    @Test
-    @Disabled
-    void writeDocumentationSnippets() {
-        ApplicationModules modules = ApplicationModules.of(SpringAdventuresApplication.class);
-        new Documenter(modules).writeDocumentation();
-    }
+  @Test
+  @Disabled
+  void writeDocumentationSnippets() {
+    ApplicationModules modules = ApplicationModules.of(SpringAdventuresApplication.class);
+    new Documenter(modules).writeDocumentation();
+  }
 }

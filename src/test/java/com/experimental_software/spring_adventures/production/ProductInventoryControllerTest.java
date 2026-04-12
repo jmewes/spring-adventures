@@ -17,27 +17,26 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 @ActiveProfiles("test")
 class ProductInventoryControllerTest {
 
-    @Autowired
-    private MockMvc mockMvc;
+  @Autowired private MockMvc mockMvc;
 
-    /*
-    @Autowired
-    private WebApplicationContext webApplicationContext;
+  /*
+  @Autowired
+  private WebApplicationContext webApplicationContext;
 
-    private MockMvc mockMvc;
+  private MockMvc mockMvc;
 
-    @BeforeEach
-    public void setUp() {
-        mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-    }
-     */
+  @BeforeEach
+  public void setUp() {
+      mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+  }
+   */
 
-    @Test
-    @DisplayName("should get product inventories")
-    void test_getProductInventories_happy_path() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/product-inventories")
-                .accept("application/json"))
-            .andDo(print())
-            .andExpect(status().isOk());
-    }
+  @Test
+  @DisplayName("should get product inventories")
+  void test_getProductInventories_happy_path() throws Exception {
+    mockMvc
+        .perform(MockMvcRequestBuilders.get("/api/product-inventories").accept("application/json"))
+        .andDo(print())
+        .andExpect(status().isOk());
+  }
 }

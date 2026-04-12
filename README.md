@@ -16,6 +16,26 @@ Reference project for mid-size Spring Boot applications
 
 ## Development
 
+### Code formatting
+
+The project uses the [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html) as baseline for the codestyle.
+
+The corresponding IntelliJ configuration file can be downloaded from here:
+
+```
+https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml
+```
+
+Use the Maven goal `spotless:apply` to automatically format all Java files:
+
+```sh
+mvn spotless:apply
+```
+
+**Also see**
+
+- [Configuring Google Style Guide for Java for IntelliJ | medium.com](https://medium.com/swlh/configuring-google-style-guide-for-java-for-intellij-c727af4ef248)
+
 ### AdventureWorks database
 
 The project builds upon the "AdventureWorks" database from [NorfolkDataSci/adventure-works-postgres](https://github.com/NorfolkDataSci/adventure-works-postgres).

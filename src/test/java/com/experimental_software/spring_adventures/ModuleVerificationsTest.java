@@ -8,8 +8,8 @@ import org.springframework.modulith.core.ApplicationModules;
  */
 class ModuleVerificationsTest {
 
-    @Test
-    void testModules() {
-        ApplicationModules.of(SpringAdventuresApplication.class).verify();
-    }
+  @Test
+  void testModules() {
+    ApplicationModules.of(SpringAdventuresApplication.class).verify();
+  }
 }

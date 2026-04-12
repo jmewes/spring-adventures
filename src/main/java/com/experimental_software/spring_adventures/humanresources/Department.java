@@ -15,10 +15,10 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Department {
 
-    @Id
-    @Column(name = "departmentid")
-    private Integer departmentId;
+  @Id
+  @Column(name = "departmentid")
+  private Integer departmentId;
 
-    @Column(name = "name", length = 64)
-    private String name;
+  @Column(name = "name", length = 64)
+  private String name;
 }

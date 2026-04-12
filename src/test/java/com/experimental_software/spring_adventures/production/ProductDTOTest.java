@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 
 class ProductDTOTest {
 
-    @Test
-    @DisplayName("should create product without name")
-    void test_noName_happy_path() {
-        var result = ProductDTO.noName();
-        assertThat(result.name()).isEqualTo("n/a");
-    }
+  @Test
+  @DisplayName("should create product without name")
+  void test_noName_happy_path() {
+    var result = ProductDTO.noName();
+    assertThat(result.name()).isEqualTo("n/a");
+  }
 }

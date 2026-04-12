@@ -19,13 +19,13 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Product {
 
-    @Id
-    @Column(name = "productid")
-    private Integer productId;
+  @Id
+  @Column(name = "productid")
+  private Integer productId;
 
-    @Column(name = "productnumber")
-    private String productNumber;
+  @Column(name = "productnumber")
+  private String productNumber;
 
-    @Column(name = "name")
-    private String name;
+  @Column(name = "name")
+  private String name;
 }

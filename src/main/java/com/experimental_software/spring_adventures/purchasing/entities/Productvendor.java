@@ -1,7 +1,5 @@
 package com.experimental_software.spring_adventures.purchasing.entities;
 
-import com.experimental_software.spring_adventures.production.Product;
-import com.experimental_software.spring_adventures.production.entities.Unitmeasure;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -25,10 +23,12 @@ public class Productvendor {
 
   @EmbeddedId private ProductvendorId id;
 
+  /* TODO Define module constraints
   @MapsId("productid")
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
   @JoinColumn(name = "productid", nullable = false)
   private Product productid;
+   */
 
   @MapsId("businessentityid")
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -60,10 +60,12 @@ public class Productvendor {
   @Column(name = "onorderqty")
   private Integer onorderqty;
 
+  /* TODO Define module constraints
   @NotNull
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
   @JoinColumn(name = "unitmeasurecode", nullable = false)
   private Unitmeasure unitmeasurecode;
+   */
 
   @NotNull
   @ColumnDefault("now()")

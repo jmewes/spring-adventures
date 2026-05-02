@@ -1,14 +1,10 @@
 package com.experimental_software.spring_adventures.person.entities;
 
-import com.experimental_software.spring_adventures.sales.entities.Countryregion;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -34,10 +30,12 @@ public class Stateprovince {
   @Column(name = "stateprovincecode", nullable = false, length = 3)
   private String stateprovincecode;
 
+  /* TODO Define module constraints
   @NotNull
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
   @JoinColumn(name = "countryregioncode", nullable = false)
   private Countryregion countryregioncode;
+   */
 
   @ColumnDefault("true")
   @Column(name = "isonlystateprovinceflag", columnDefinition = "\"Flag\" not null")

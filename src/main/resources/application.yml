@@ -7,7 +7,7 @@ spring:
       indent-output: true
 
   jpa:
-    #hibernate:
+    # hibernate:
     #  ddl-auto: validate
     properties:
       hibernate:
@@ -15,7 +15,7 @@ spring:
         generate_statistics: true
 
   datasource:
-    url: "jdbc:postgresql://localhost:5432/Adventureworks"
+    url: "jdbc:postgresql://localhost:5432/AdventureWorks"
     username: "test"
     password: "test"
 

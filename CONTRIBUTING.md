@@ -1,8 +1,13 @@
 # Contributing
 
+## Issues welcome
+
+This project welcomes the creation of issues for any bugs or feature requests.
+However, pull requests are most likely not accepted at this time.
+
 ## Commit messages
 
-Commit messages should follow the [Conventional Commits](https://www.conventionalcommits.org/) guidelines
+Commit messages follow the [Conventional Commits](https://www.conventionalcommits.org/) guidelines
 and include a reference to a [GitHub issue](https://github.com/experimental-software/spring-adventures/issues) in the message body.
 
 ```

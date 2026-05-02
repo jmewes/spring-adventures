@@ -1,14 +1,11 @@
 package com.experimental_software.spring_adventures.production;
 
-import static org.springframework.http.HttpStatus.OK;
-
+import com.experimental_software.spring_adventures.production.entities.ProductInventory;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,29 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 class ProductInventoryController {
 
   private final ProductInventoryRepository productInventoryRepository;
-
-  @GetMapping(path = "/api/product-inventories")
-  public ResponseEntity<PagedModel<ProductInventoryDTO>> getProductInventories(Pageable pageable) {
-
-    Page<ProductInventory> page = productInventoryRepository.findAll(pageable);
-    List<ProductInventoryDTO> content =
-        page
-            .map(
-                i -> {
-                  Product p = i.getProduct();
-                  return new ProductInventoryDTO(
-                      new ProductDTO(p.getProductId(), p.getName()),
-                      new LocationDTO(i.getLocationId()),
-                      i.getQuantity());
-                })
-            .stream()
-            .toList();
-
-    PagedModel.PageMetadata pageMetadata =
-        new PagedModel.PageMetadata(page.getSize(), page.getNumber(), page.getTotalElements());
-
-    return new ResponseEntity<>(PagedModel.of(content, pageMetadata), OK);
-  }
 
   @GetMapping(path = "/api/product-inventories/top3")
   public ResponseEntity<List<ProductInventory>> getTop3ProductInventories(Pageable pageable) {

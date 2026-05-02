@@ -1,5 +1,6 @@
-package com.experimental_software.spring_adventures.production;
+package com.experimental_software.spring_adventures.production.entities;
 
+import com.experimental_software.spring_adventures.production.Product;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

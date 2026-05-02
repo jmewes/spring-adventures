@@ -1,6 +1,7 @@
 package com.experimental_software.spring_adventures.production;
 
-import com.experimental_software.spring_adventures.production.ProductInventory.ProductInventoryId;
+import com.experimental_software.spring_adventures.production.entities.ProductInventory;
+import com.experimental_software.spring_adventures.production.entities.ProductInventory.ProductInventoryId;
 import jakarta.transaction.Transactional;
 import java.util.List;
 import org.springframework.data.domain.Pageable;

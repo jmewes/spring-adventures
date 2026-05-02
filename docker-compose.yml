@@ -1,6 +1,6 @@
 services:
   database:
-    image: postgres:latest
+    image: postgres:18
     ports:
       - "5432:5432"
     volumes:
@@ -8,6 +8,21 @@ services:
     environment:
       - POSTGRES_USER=test
       - POSTGRES_PASSWORD=test
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  init-db:
+    image: postgres:18
+    depends_on:
+      database:
+        condition: service_healthy
+    volumes:
+      - ./src/infra/init_database.sh:/init_database.sh:ro
+    entrypoint: ["/bin/sh", "/init_database.sh"]
+    restart: "no"
 
 #  backend:
 #    image: experimentalsoftware/spring-adventures:backend-latest

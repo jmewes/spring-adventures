@@ -11,10 +11,25 @@ Reference project for mid-size Spring Boot applications
 
 ## Dependencies
 
+- Java 25
 - Maven
 - Docker
 
 ## Development
+
+### Starting database
+
+A locally running PostgreSQL instance can be started using Docker Compose:
+
+```sh
+docker compose up -d
+```
+
+The database may be reset with the following command:
+
+```sh
+docker volume rm spring-adventures_adventure_works_postgres_db
+```
 
 ### Code formatting
 
@@ -35,23 +50,6 @@ mvn spotless:apply
 **Also see**
 
 - [Configuring Google Style Guide for Java for IntelliJ | medium.com](https://medium.com/swlh/configuring-google-style-guide-for-java-for-intellij-c727af4ef248)
-
-### AdventureWorks database
-
-The project builds upon the "AdventureWorks" database from [NorfolkDataSci/adventure-works-postgres](https://github.com/NorfolkDataSci/adventure-works-postgres).
-
-```sh
-docker compose up -d 
-```
-
-```sh
-cd /path/to/adventure-works-postgres/
-
-export PGPASSWORD=test
-
-psql -h 0.0.0.0 -p 5432 -U test -c 'CREATE DATABASE "Adventureworks";'
-psql -h 0.0.0.0 -p 5432 -U test -d Adventureworks < install.sql
-```
 
 ### Start application
 
@@ -108,5 +106,5 @@ docker push experimentalsoftware/spring-adventures:backend-latest
 
 ## Credits
 
-- The "Adventures" domain is derived from https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks
-- Inspiration for new app features: https://www.baeldung.com/category/weekly-review
+- The domain model is derived from the [AdventureWorks sample databases](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks) by Microsoft, licensed under the MIT License.
+- The database schema is based on [AdventureWorks for PostgreSQL](https://github.com/lorint/AdventureWorks-for-Postgres) by Lorin Thwaits, licensed under the MIT License.

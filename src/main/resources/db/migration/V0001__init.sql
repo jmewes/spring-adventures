@@ -1,0 +1,1 @@
+-- empty migration to initialize Flyway schema

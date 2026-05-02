@@ -1,5 +1,6 @@
 package com.experimental_software.spring_adventures.humanresources;
 
+import com.experimental_software.spring_adventures.humanresources.entities.Department;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

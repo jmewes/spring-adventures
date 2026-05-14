@@ -1,5 +1,5 @@
 package com.experimental_software.spring_adventures.person;
-  
+
 import com.experimental_software.spring_adventures.person.entities.Businessentity;
 import com.experimental_software.spring_adventures.person.entities.Person;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -26,5 +26,4 @@ public class PersonController {
     Person savedPerson = personRepository.save(person);
     return ResponseEntity.status(201).body(savedPerson);
   }
-
 }

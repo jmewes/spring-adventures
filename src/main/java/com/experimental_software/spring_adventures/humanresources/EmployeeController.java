@@ -25,7 +25,8 @@ class EmployeeController {
 
   @GetMapping("/api/employees/{id}")
   public ResponseEntity<Employee> getEmployeeById(@PathVariable Integer id) {
-    return employeeRepository.findById(id)
+    return employeeRepository
+        .findById(id)
         .map(ResponseEntity::ok)
         .orElse(ResponseEntity.notFound().build());
   }
@@ -35,5 +36,4 @@ class EmployeeController {
     Employee savedEmployee = employeeRepository.save(employee);
     return ResponseEntity.status(201).body(savedEmployee);
   }
-
 }

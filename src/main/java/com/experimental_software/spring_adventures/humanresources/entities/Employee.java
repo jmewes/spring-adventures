@@ -24,6 +24,8 @@ public class Employee {
   private Integer id;
 
   /*
+  TODO How to handle module boundaries?
+
   @MapsId
   @OneToOne(fetch = FetchType.LAZY, optional = false)
   @JoinColumn(name = "businessentityid", nullable = false)
@@ -92,6 +94,4 @@ public class Employee {
   @ColumnDefault("'/'")
   @Column(name = "organizationnode", length = Integer.MAX_VALUE)
   private String organizationnode;
-
-
 }

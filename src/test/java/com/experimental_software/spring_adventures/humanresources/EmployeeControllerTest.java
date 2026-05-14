@@ -26,8 +26,7 @@ class EmployeeControllerTest {
   @DisplayName("should get all employees")
   void test_getAllEmployees_happy_path() throws Exception {
     mockMvc
-        .perform(
-            MockMvcRequestBuilders.get("/api/employees").accept("application/json"))
+        .perform(MockMvcRequestBuilders.get("/api/employees").accept("application/json"))
         .andDo(print())
         .andExpect(status().isOk());
   }

@@ -4,7 +4,7 @@
   "description": "Component Integration Tests for Spring Adventures",
   "type": "module",
   "scripts": {
-    "test": "node --test --experimental-strip-types **/*.test.ts"
+    "test": "node --loader ts-node/esm --test **/*.test.ts"
   },
   "dependencies": {
     "openapi-fetch": "^0.17.0",

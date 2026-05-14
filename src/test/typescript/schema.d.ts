@@ -92,9 +92,9 @@ export interface components {
             /** Format: int32 */
             id?: number;
             /** Format: uuid */
-            rowguid: string;
+            rowguid?: string;
             /** Format: date-time */
-            modifieddate: string;
+            modifieddate?: string;
         };
         Person: {
             /** Format: int32 */
@@ -116,9 +116,9 @@ export interface components {
                 [key: string]: number;
             };
             /** Format: uuid */
-            rowguid: string;
+            rowguid?: string;
             /** Format: date-time */
-            modifieddate: string;
+            modifieddate?: string;
         };
         Employee: {
             /** Format: int32 */

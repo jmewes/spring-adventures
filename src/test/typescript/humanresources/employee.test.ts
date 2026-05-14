@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert";
-import { client, printResponse } from "../utils.js";
+import { client, printResponse } from "../utils.ts";
 import { createPerson } from "../person/person.ts";
 import { Employee } from "./employee.ts";
 
@@ -20,7 +20,7 @@ test("create employee", async () => {
     vacationhours: 99,
     sickleavehours: 69,
     currentflag: true,
-    rowguid: "f01251e5-96a3-448d-981e-0f9d2d71548d",
+    rowguid: "",
     modifieddate: "2026-05-14T11:49:00Z",
     organizationnode: "/",
   };

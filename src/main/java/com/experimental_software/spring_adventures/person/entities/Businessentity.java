@@ -27,10 +27,10 @@ public class Businessentity {
   @NotNull
   @ColumnDefault("uuid_generate_v1()")
   @Column(name = "rowguid", nullable = false)
-  private UUID rowguid;
+  private UUID rowguid = UUID.randomUUID();
 
   @NotNull
   @ColumnDefault("now()")
   @Column(name = "modifieddate", nullable = false)
-  private Instant modifieddate;
+  private Instant modifieddate = Instant.now();
 }

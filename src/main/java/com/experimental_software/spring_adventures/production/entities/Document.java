@@ -1,12 +1,8 @@
 package com.experimental_software.spring_adventures.production.entities;
 
-import com.experimental_software.spring_adventures.humanresources.Employee;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -32,10 +28,15 @@ public class Document {
   @Column(name = "title", nullable = false, length = 50)
   private String title;
 
+  /*
+  TODO: How to model package dependencies?
+
   @NotNull
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
   @JoinColumn(name = "owner", nullable = false)
   private Employee owner;
+
+   */
 
   @ColumnDefault("false")
   @Column(name = "folderflag", columnDefinition = "\"Flag\" not null")

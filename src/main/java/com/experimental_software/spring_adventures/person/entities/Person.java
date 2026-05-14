@@ -30,7 +30,7 @@ public class Person {
   private Integer id;
 
   @MapsId
-  @OneToOne(fetch = FetchType.LAZY, optional = false)
+  @OneToOne(fetch = FetchType.LAZY, optional = false, cascade = jakarta.persistence.CascadeType.ALL)
   @JoinColumn(name = "businessentityid", nullable = false)
   private Businessentity businessentity;
 
@@ -41,20 +41,20 @@ public class Person {
 
   @ColumnDefault("false")
   @Column(name = "namestyle", columnDefinition = "\"NameStyle\" not null")
-  private Object namestyle;
+  private boolean namestyle;
 
   @Size(max = 8)
   @Column(name = "title", length = 8)
   private String title;
 
   @Column(name = "firstname", columnDefinition = "\"Name\" not null")
-  private Object firstname;
+  private String firstname;
 
   @Column(name = "middlename", columnDefinition = "\"Name\" ")
-  private Object middlename;
+  private String middlename;
 
   @Column(name = "lastname", columnDefinition = "\"Name\" not null")
-  private Object lastname;
+  private String lastname;
 
   @Size(max = 10)
   @Column(name = "suffix", length = 10)
@@ -67,19 +67,19 @@ public class Person {
 
   @JdbcTypeCode(SqlTypes.SQLXML)
   @Column(name = "additionalcontactinfo")
-  private Map<String, Object> additionalcontactinfo;
+  private Map<String, String> additionalcontactinfo;
 
   @JdbcTypeCode(SqlTypes.SQLXML)
   @Column(name = "demographics")
-  private Map<String, Object> demographics;
+  private Map<String, Integer> demographics;
 
   @NotNull
   @ColumnDefault("uuid_generate_v1()")
   @Column(name = "rowguid", nullable = false)
-  private UUID rowguid;
+  private UUID rowguid = UUID.randomUUID();
 
   @NotNull
   @ColumnDefault("now()")
   @Column(name = "modifieddate", nullable = false)
-  private Instant modifieddate;
+  private Instant modifieddate = Instant.now();
 }

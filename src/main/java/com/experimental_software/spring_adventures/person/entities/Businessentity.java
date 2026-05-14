@@ -5,13 +5,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 import java.time.Instant;
 import java.util.UUID;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Getter
 @Setter
@@ -24,13 +24,17 @@ public class Businessentity {
   @Column(name = "businessentityid", nullable = false)
   private Integer id;
 
-  @NotNull
-  @ColumnDefault("uuid_generate_v1()")
-  @Column(name = "rowguid", nullable = false)
+  @Column(name = "rowguid")
   private UUID rowguid;
 
-  @NotNull
-  @ColumnDefault("now()")
-  @Column(name = "modifieddate", nullable = false)
+  @UpdateTimestamp
+  @Column(name = "modifieddate")
   private Instant modifieddate;
+
+  @PrePersist
+  void generateRowguidIfMissing() {
+    if (rowguid == null) {
+      rowguid = UUID.randomUUID();
+    }
+  }
 }

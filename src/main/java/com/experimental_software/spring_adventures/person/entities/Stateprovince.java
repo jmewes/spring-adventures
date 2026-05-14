@@ -30,7 +30,7 @@ public class Stateprovince {
   @Column(name = "stateprovincecode", nullable = false, length = 3)
   private String stateprovincecode;
 
-  /* TODO Define module constraints
+  /* TODO(GH-26) Reference entities from different modules by identity only
   @NotNull
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
   @JoinColumn(name = "countryregioncode", nullable = false)

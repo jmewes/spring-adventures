@@ -25,15 +25,16 @@ A locally running PostgreSQL instance can be started using Docker Compose:
 docker compose up -d
 ```
 
-The database may be reset with the following command:
+The database may be reset with the following commands:
 
 ```sh
+docker rm -v -f $(docker ps -qa)
 docker volume rm spring-adventures_adventure_works_postgres_db
 ```
 
 ### Code formatting
 
-The project uses the [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html) as baseline for the codestyle.
+The project uses the [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html) as the baseline for the codestyle.
 
 The corresponding IntelliJ configuration file can be downloaded from here:
 
@@ -65,6 +66,14 @@ http://localhost:8080/swagger-ui/index.html
 
 ```sh
 mvn verify
+```
+
+### Component Integration Testing (TypeScript)
+
+Ensure the application is running at `http://localhost:8080`, then run:
+
+```sh
+cd src/test/typescript && npm install && npm test
 ```
 
 ### System testing

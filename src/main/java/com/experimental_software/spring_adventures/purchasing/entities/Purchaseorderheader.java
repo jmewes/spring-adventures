@@ -1,6 +1,5 @@
 package com.experimental_software.spring_adventures.purchasing.entities;
 
-import com.experimental_software.spring_adventures.humanresources.Employee;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -38,10 +37,12 @@ public class Purchaseorderheader {
   @Column(name = "status", nullable = false)
   private Short status;
 
+  /* TODO(GH-26) Reference entities from different modules by identity only
   @NotNull
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
   @JoinColumn(name = "employeeid", nullable = false)
   private Employee employeeid;
+   */
 
   @NotNull
   @ManyToOne(fetch = FetchType.LAZY, optional = false)

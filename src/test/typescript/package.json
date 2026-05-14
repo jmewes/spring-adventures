@@ -1,0 +1,19 @@
+{
+  "name": "spring-adventures-integration-tests",
+  "version": "1.0.0",
+  "description": "Component Integration Tests for Spring Adventures",
+  "type": "module",
+  "scripts": {
+    "test": "node --loader ts-node/esm --test **/*.test.ts"
+  },
+  "dependencies": {
+    "openapi-fetch": "^0.17.0",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "openapi-typescript": "^7.13.0",
+    "prettier": "^3.8.3",
+    "typescript": "^5.9.3"
+  }
+}

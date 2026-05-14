@@ -60,7 +60,7 @@ public class Productvendor {
   @Column(name = "onorderqty")
   private Integer onorderqty;
 
-  /* TODO Define module constraints
+  /* TODO(GH-26) Reference entities from different modules by identity only
   @NotNull
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
   @JoinColumn(name = "unitmeasurecode", nullable = false)

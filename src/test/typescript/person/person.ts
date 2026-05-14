@@ -1,13 +1,10 @@
-import type { paths, components } from "../schema";
-import createClient from "openapi-fetch";
+import type { components } from "../schema";
+import { client } from "../utils.js";
 
 export type Person = components["schemas"]["Person"];
 
-// TODO Client can be defined in "utils.ts"
-const client = createClient<paths>({ baseUrl: "http://localhost:8080" });
-
 export async function createPerson(): Promise<Person> {
-  const payload = {
+  const payload: Person = {
     id: 1,
     businessentity: {
       id: 1,

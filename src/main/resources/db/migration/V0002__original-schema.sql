@@ -953,7 +953,7 @@ COMMENT ON TABLE person.emailaddress IS 'Where to send a person email.';
 -- Name: COLUMN emailaddress.businessentityid; Type: COMMENT; Schema: person; Owner: test
 --
 
-COMMENT ON COLUMN person.emailaddress.businessentityid IS 'Primary key. Person associated with this email address.  Foreign key to Person.BusinessEntityID';
+COMMENT ON COLUMN person.emailaddress.businessentityid IS 'Primary key. Persons associated with this email address.  Foreign key to Persons.BusinessEntityID';
 
 
 --
@@ -1006,7 +1006,7 @@ COMMENT ON TABLE person.person IS 'Human beings involved with AdventureWorks: em
 -- Name: COLUMN person.businessentityid; Type: COMMENT; Schema: person; Owner: test
 --
 
-COMMENT ON COLUMN person.person.businessentityid IS 'Primary key for Person records.';
+COMMENT ON COLUMN person.person.businessentityid IS 'Primary key for Persons records.';
 
 
 --
@@ -1104,7 +1104,7 @@ COMMENT ON TABLE person.personphone IS 'Telephone number and type of a person.';
 -- Name: COLUMN personphone.businessentityid; Type: COMMENT; Schema: person; Owner: test
 --
 
-COMMENT ON COLUMN person.personphone.businessentityid IS 'Business entity identification number. Foreign key to Person.BusinessEntityID.';
+COMMENT ON COLUMN person.personphone.businessentityid IS 'Business entity identification number. Foreign key to Persons.BusinessEntityID.';
 
 
 --
@@ -1541,7 +1541,7 @@ COMMENT ON COLUMN person.businessentitycontact.businessentityid IS 'Primary key.
 -- Name: COLUMN businessentitycontact.personid; Type: COMMENT; Schema: person; Owner: test
 --
 
-COMMENT ON COLUMN person.businessentitycontact.personid IS 'Primary key. Foreign key to Person.BusinessEntityID.';
+COMMENT ON COLUMN person.businessentitycontact.personid IS 'Primary key. Foreign key to Persons.BusinessEntityID.';
 
 
 --
@@ -5030,7 +5030,7 @@ ALTER TABLE sales.customer OWNER TO test;
 -- Name: TABLE customer; Type: COMMENT; Schema: sales; Owner: test
 --
 
-COMMENT ON TABLE sales.customer IS 'Current customer information. Also see the Person and Store tables.';
+COMMENT ON TABLE sales.customer IS 'Current customer information. Also see the Persons and Store tables.';
 
 
 --
@@ -5044,7 +5044,7 @@ COMMENT ON COLUMN sales.customer.customerid IS 'Primary key.';
 -- Name: COLUMN customer.personid; Type: COMMENT; Schema: sales; Owner: test
 --
 
-COMMENT ON COLUMN sales.customer.personid IS 'Foreign key to Person.BusinessEntityID';
+COMMENT ON COLUMN sales.customer.personid IS 'Foreign key to Persons.BusinessEntityID';
 
 
 --
@@ -5355,7 +5355,7 @@ COMMENT ON TABLE sales.personcreditcard IS 'Cross-reference table mapping people
 -- Name: COLUMN personcreditcard.businessentityid; Type: COMMENT; Schema: sales; Owner: test
 --
 
-COMMENT ON COLUMN sales.personcreditcard.businessentityid IS 'Business entity identification number. Foreign key to Person.BusinessEntityID.';
+COMMENT ON COLUMN sales.personcreditcard.businessentityid IS 'Business entity identification number. Foreign key to Persons.BusinessEntityID.';
 
 
 --

@@ -25,9 +25,10 @@ A locally running PostgreSQL instance can be started using Docker Compose:
 docker compose up -d
 ```
 
-The database may be reset with the following command:
+The database may be reset with the following commands:
 
 ```sh
+docker rm -v -f $(docker ps -qa)
 docker volume rm spring-adventures_adventure_works_postgres_db
 ```
 

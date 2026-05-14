@@ -28,14 +28,11 @@ public class Document {
   @Column(name = "title", nullable = false, length = 50)
   private String title;
 
-  /*
-  TODO: How to model package dependencies?
-
+  /* TODO(GH-26) Reference entities from different modules by identity only
   @NotNull
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
   @JoinColumn(name = "owner", nullable = false)
   private Employee owner;
-
    */
 
   @ColumnDefault("false")

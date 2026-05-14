@@ -1,12 +1,11 @@
 import { test } from "node:test";
 import assert from "node:assert";
-import { printResponse } from "../utils.ts";
-
-const BASE_URL = "http://localhost:8080";
+import { client, printResponse } from "../utils.js";
+import { Person } from "./person.ts";
 
 test("create person", async () => {
   // Arrange
-  const payload = {
+  const payload: Person = {
     id: 1,
     businessentity: {
       id: 1,
@@ -28,16 +27,11 @@ test("create person", async () => {
   };
 
   // Act
-  // TODO Replace "await fetch" with usage of openapi-fetch
-  const response = await fetch(`${BASE_URL}/api/persons`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
+  const { data, response } = await client.POST("/api/persons", {
+    body: payload as any,
   });
 
   // Assert
-  printResponse(response, await response.text());
+  printResponse(response, JSON.stringify(data));
   assert.strictEqual(response.status, 201);
 });

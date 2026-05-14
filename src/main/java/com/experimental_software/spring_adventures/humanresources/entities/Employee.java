@@ -23,13 +23,11 @@ public class Employee {
   @Column(name = "businessentityid", nullable = false)
   private Integer id;
 
-  /*
-  TODO How to handle module boundaries?
-
+  /* TODO(GH-26) Reference entities from different modules by identity only
   @MapsId
   @OneToOne(fetch = FetchType.LAZY, optional = false)
   @JoinColumn(name = "businessentityid", nullable = false)
-  private Person person;
+  private Persons person;
    */
 
   @Size(max = 15)

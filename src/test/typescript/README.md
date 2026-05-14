@@ -12,6 +12,7 @@ With the help of the tests in this directory, it is possible to run experiments 
 To prepare the test execution, the test project dependencies need to be downloaded with the Node Package Manager:
 
 ```sh
+export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
 npm install
 ```
 

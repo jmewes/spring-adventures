@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@Tag(name = "Employees")
+@Tag(name = "Employee")
 class EmployeeController {
 
   private final EmployeeRepository employeeRepository;

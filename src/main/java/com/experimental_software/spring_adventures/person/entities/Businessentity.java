@@ -7,12 +7,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 import java.time.Instant;
 import java.util.UUID;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Getter
@@ -29,7 +27,6 @@ public class Businessentity {
   @Column(name = "rowguid")
   private UUID rowguid;
 
-
   @UpdateTimestamp
   @Column(name = "modifieddate")
   private Instant modifieddate;
@@ -40,5 +37,4 @@ public class Businessentity {
       rowguid = UUID.randomUUID();
     }
   }
-
 }

@@ -1,6 +1,5 @@
 package com.experimental_software.spring_adventures.purchasing.entities;
 
-import com.experimental_software.spring_adventures.humanresources.entities.Employee;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

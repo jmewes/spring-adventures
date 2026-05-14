@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -17,6 +18,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.type.SqlTypes;
 
 @Getter
@@ -73,13 +75,17 @@ public class Person {
   @Column(name = "demographics")
   private Map<String, Integer> demographics;
 
-  @NotNull
-  @ColumnDefault("uuid_generate_v1()")
-  @Column(name = "rowguid", nullable = false)
+  @Column(name = "rowguid")
   private UUID rowguid = UUID.randomUUID();
 
-  @NotNull
-  @ColumnDefault("now()")
-  @Column(name = "modifieddate", nullable = false)
+  @UpdateTimestamp
+  @Column(name = "modifieddate")
   private Instant modifieddate = Instant.now();
+
+  @PrePersist
+  void generateRowguidIfMissing() {
+    if (rowguid == null) {
+      rowguid = UUID.randomUUID();
+    }
+  }
 }

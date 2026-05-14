@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@Tag(name = "Persons")
+@Tag(name = "Person")
 public class PersonController {
 
   private final PersonRepository personRepository;

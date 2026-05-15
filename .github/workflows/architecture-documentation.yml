@@ -29,15 +29,15 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          mkdir -p /tmp/gh-pages
+          TEMP_DIR=$(mktemp -d)
           
-          cp -r doc/build/html /tmp/gh-pages/
+          cp -r doc/build/html/** "$TEMP_DIR"
           
           git fetch origin gh-pages || true
           git checkout --orphan gh-pages
           
           git rm -rf . || true
-          cp -r /tmp/gh-pages/. .
+          cp -r "$TEMP_DIR"/** .
           
           touch .nojekyll
           

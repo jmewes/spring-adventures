@@ -39,7 +39,7 @@ if [[ -d ./build ]]; then
 fi
 mkdir ./build
 find src -name "img" -exec cp -r {} ./build \;
-docker run -v "$(pwd)":/documents/ asciidoctor/docker-asciidoctor asciidoctor ./src/index.adoc --out-file ./build/architecture-documentation.html -a revdate="$(date +%F)"
+docker run -v "$(pwd)":/documents/ asciidoctor/docker-asciidoctor asciidoctor ./src/index.adoc --out-file ./build/index.html -a revdate="$(date +%F)"
 
 TEMP_DIR=$(mktemp -d)
 mv ./build/* "${TEMP_DIR}"

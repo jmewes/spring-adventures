@@ -2,6 +2,9 @@
 
 > Requirements, stakeholder, (top) quality goals
 
+The goal of the Spring Adventures application is to provide a blueprint for medium-sized Spring Boot applications.
+Further, it is used to discuss best practices and experiment with new Spring and Java featues.
+
 Also see:
 
 - https://docs.arc42.org/section-1/

@@ -4,10 +4,13 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   publish-architecture-documentation:
-    if: startsWith(github.event.head_commit.message, 'docs(arc42):')
+    if: startsWith(github.event.pull_request.title, 'docs(arc42):')
     runs-on: ubuntu-latest
 
     steps:
@@ -25,18 +28,19 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          git checkout gh-pages || git checkout --orphan gh-pages
-
-          rm -rf doc/build/html
-          mkdir -p doc/build/html
-          git checkout ${{ github.sha }} -- doc/build/html
-
-          git add doc/build/html
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
-
-          git commit -m "docs(arc42): publish architecture documentation"
-          git push origin gh-pages
+          
+          mkdir -p /tmp/gh-pages
+          
+          cp -r doc/build/html /tmp/gh-pages/
+          
+          git fetch origin gh-pages || true
+          git checkout --orphan gh-pages
+          
+          git rm -rf . || true
+          cp -r /tmp/gh-pages/. .
+          
+          touch .nojekyll
+          
+          git add .
+          git commit -m "Publish documentation" || echo "No changes to publish"
+          git push --force origin gh-pages

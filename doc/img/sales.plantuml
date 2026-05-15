@@ -1,0 +1,222 @@
+@startuml erd
+
+hide circle
+hide empty members
+skinparam linetype ortho
+
+
+entity CountryRegionCurrency {
+    CountryRegionCode
+    CurrencyCode
+    ModifiedDate
+}
+
+entity CreditCard {
+    CreditCardID
+    CardType
+    CardNumber
+    ExpMonth
+    ExpYear
+    ModifiedDate
+}
+
+entity Currency {
+    CurrencyCode
+    Name
+    ModifiedDate
+}
+
+entity CurrencyRate {
+    CurrencyRateID
+    CurrencyRateDate
+    FromCurrencyCode
+    ToCurrencyCode
+    AverageRate
+    EndOfDayRate
+    ModifiedDate
+}
+
+entity Customer {
+    CustomerID
+    PersonID
+    StoreID
+    TerritoryID
+    AccountNumber
+    rowguid
+    ModifiedDate
+}
+
+entity PersonCreditCard {
+    BusinessEntityID
+    CreditCardID
+    ModifiedDate
+}
+
+entity SalesOrderDetail {
+    SalesOrderID
+    SalesOrderDetailID
+    CarrierTrackingNumber
+    OrderQty
+    ProductID
+    SpecialOfferID
+    UnitPrice
+    UnitPriceDiscount
+    LineTotal
+    rowguid
+    ModifiedDate
+}
+
+entity SalesOrderHeader {
+    SalesOrderID
+    RevisionNumber
+    OrderDate
+    DueDate
+    ShipDate
+    Status
+    OnlineOrderFlag
+    SalesOrderNumber
+    PurchaseOrderNumber
+    AccountNumber
+    CustomerID
+    SalesPersonID
+    TerritoryID
+    BillToAddressID
+    ShipToAddressID
+    ShipMethodID
+    CreditCardID
+    CreditCardApprovalCode
+    CurrencyRateID
+    SubTotal
+    TaxAmt
+    Freight
+    TotalDue
+    Comment
+    rowguid
+    ModifiedDate
+}
+
+entity SalesOrderHeaderSalesReason {
+    SalesOrderID
+    SalesReasonID
+    ModifiedDate
+}
+
+entity SalesPerson {
+    BusinessEntityID
+    TerritoryID
+    SalesQuota
+    Bonus
+    CommissionPct
+    SalesYTD
+    SalesLastYear
+    rowguid
+    ModifiedDate
+}
+
+entity SalesPersonQuotaHistory {
+    BusinessEntityID
+    QuotaDate
+    SalesQuota
+    rowguid
+    ModifiedDate
+}
+
+entity SalesReason {
+    SalesReasonID
+    Name
+    ReasonType
+    ModifiedDate
+}
+
+entity SalesTaxRate {
+    SalesTaxRateID
+    StateProvinceID
+    TaxType
+    TaxRate
+    Name
+    rowguid
+    ModifiedDate
+}
+
+entity SalesTerritory {
+    TerritoryID
+    Name
+    CountryRegionCode
+    "group"
+    SalesYTD
+    SalesLastYear
+    CostYTD
+    CostLastYear
+    rowguid
+    ModifiedDate
+}
+
+entity SalesTerritoryHistory {
+    BusinessEntityID
+    TerritoryID
+    StartDate
+    EndDate
+    rowguid
+    ModifiedDate
+}
+
+entity ShoppingCartItem {
+    ShoppingCartItemID
+    ShoppingCartID
+    Quantity
+    ProductID
+    DateCreated
+    ModifiedDate
+}
+
+entity SpecialOffer {
+    SpecialOfferID
+    Description
+    DiscountPct
+    Type
+    Category
+    StartDate
+    EndDate
+    MinQty
+    MaxQty
+    rowguid
+    ModifiedDate
+}
+
+entity SpecialOfferProduct {
+    SpecialOfferID
+    ProductID
+    rowguid
+    ModifiedDate
+}
+
+entity Store {
+    BusinessEntityID
+    Name
+    SalesPersonID
+    Demographics
+    rowguid
+    ModifiedDate
+}
+
+CountryRegionCurrency }o--|| Currency
+CurrencyRate }o--|| Currency
+CurrencyRate }o--|| Currency
+Customer }o--|| Store
+Customer }o--|| SalesTerritory
+PersonCreditCard }o--|| CreditCard
+SalesOrderDetail }o--|| SalesOrderHeader
+SalesOrderDetail }o--|| SpecialOfferProduct
+SalesOrderHeader }o--|| CreditCard
+SalesOrderHeader }o--|| CurrencyRate
+SalesOrderHeader }o--|| Customer
+SalesOrderHeader }o--|| SalesPerson
+SalesOrderHeader }o--|| SalesTerritory
+SalesOrderHeaderSalesReason }o--|| SalesReason
+SalesOrderHeaderSalesReason }o--|| SalesOrderHeader
+SalesPerson }o--|| SalesTerritory
+SalesPersonQuotaHistory }o--|| SalesPerson
+SalesTerritoryHistory }o--|| SalesPerson
+SalesTerritoryHistory }o--|| SalesTerritory
+SpecialOfferProduct }o--|| SpecialOffer
+Store }o--|| SalesPerson

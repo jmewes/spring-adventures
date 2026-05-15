@@ -53,4 +53,6 @@ mkdir ./build/pdf
 docker run -v "$(pwd)":/documents/ -v ./build/pdf:/target asciidoctor/docker-asciidoctor asciidoctor-pdf ./src/index.adoc -a lang=en --out-file /target/architecture-documentation.pdf -a revdate="$(date +%F)"
 
 # Cleanup of temporarily copied files
-rm -r ./src/img
+if [[ -d ./src/img ]]; then
+  rm -r ./src/img
+fi

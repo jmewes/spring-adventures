@@ -17,7 +17,9 @@ jobs:
           fetch-depth: 0
 
       - name: Compile architecture documentation
-        run: ./doc/compile.sh
+        run: |
+          cd ./doc
+          ./compile.sh
 
       - name: Publish HTML documentation to gh-pages
         run: |

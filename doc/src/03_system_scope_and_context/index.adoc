@@ -1,0 +1,8 @@
+== Context & Scope
+
+> Business and technical context, external interfaces
+
+Also see: 
+
+- https://docs.arc42.org/section-3/
+- https://www.dokchess.de/en/03_context/

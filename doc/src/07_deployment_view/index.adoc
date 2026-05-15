@@ -1,0 +1,9 @@
+== Deployment view
+
+> Hardware and technical infrastructure, deployment
+
+Also see:
+
+- https://docs.arc42.org/section-7/
+- https://www.dokchess.de/en/07_deploymentview/
+

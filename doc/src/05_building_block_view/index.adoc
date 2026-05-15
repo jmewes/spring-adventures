@@ -1,0 +1,9 @@
+== Building block view
+
+> Abstractions of source code, black-/whiteboxes
+
+Also see: 
+
+- https://docs.arc42.org/section-5/
+- https://www.dokchess.de/en/05_buildingblockview/
+

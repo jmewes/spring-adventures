@@ -1,0 +1,10 @@
+== Solution strategy
+
+> Fundamental solution decisions and ideas
+
+Also see:
+
+- https://docs.arc42.org/section-4/
+- https://www.dokchess.de/en/04_solutionstrategy/
+
+

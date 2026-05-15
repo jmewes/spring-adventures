@@ -1,0 +1,9 @@
+== Introduction and goals
+
+> Requirements, stakeholder, (top) quality goals
+
+Also see:
+
+- https://docs.arc42.org/section-1/
+- https://www.dokchess.de/en/01_introduction/
+

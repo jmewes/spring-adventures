@@ -1,0 +1,28 @@
+= Spring Adventures: Architecture Documentation
+:toc: left
+:doctype: book
+:numbered:
+
+include::01_introduction_and_goals/index.adoc[]
+
+include::02_architecture_constraints/index.adoc[]
+
+include::03_system_scope_and_context/index.adoc[]
+
+include::04_solution_strategy/index.adoc[]
+
+include::05_building_block_view/index.adoc[]
+
+include::06_runtime_view/index.adoc[]
+
+include::07_deployment_view/index.adoc[]
+
+include::08_concepts/index.adoc[]
+
+include::09_architecture_decisions/index.adoc[]
+
+include::10_quality_requirements/index.adoc[]
+
+include::11_technical_risks/index.adoc[]
+
+include::12_glossary/index.adoc[]

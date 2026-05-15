@@ -1,0 +1,4 @@
+.vscode/
+*.bkp
+build/
+.DS_Store

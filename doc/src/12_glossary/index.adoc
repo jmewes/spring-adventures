@@ -1,0 +1,10 @@
+== Glossary
+
+> Definitions of important business and technical terms
+
+- *Foo*: Bar
+
+Also see: 
+
+- https://docs.arc42.org/section-12/
+- https://www.dokchess.de/en/12_glossary/

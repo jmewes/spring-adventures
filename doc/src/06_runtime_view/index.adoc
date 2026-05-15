@@ -1,0 +1,8 @@
+== Runtime view
+
+> Runtime scenarios: How do building blocks interact
+
+Also see: 
+
+- https://docs.arc42.org/section-6/
+- https://www.dokchess.de/en/06_runtimeview/

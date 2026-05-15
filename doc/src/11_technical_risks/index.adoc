@@ -1,0 +1,8 @@
+== Risks & Technical Dept
+
+> Known problems, risks and technical debt
+
+Also see: 
+
+- https://docs.arc42.org/section-11/
+- https://www.dokchess.de/en/11_risks/

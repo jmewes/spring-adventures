@@ -1,0 +1,8 @@
+== Constraints
+
+> Technical and organizational constraints, conventions
+
+Also see:
+
+- https://docs.arc42.org/section-2/
+- https://www.dokchess.de/en/02_constraints/

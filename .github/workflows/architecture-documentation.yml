@@ -11,7 +11,7 @@ on:
 
 jobs:
   publish-architecture-documentation:
-    if: startsWith(github.event.pull_request.title, 'docs(arc42):')
+    if: startsWith(github.event.head_commit.message, 'docs(arc42):') || startsWith(github.event.pull_request.title, 'docs(arc42):')
     runs-on: ubuntu-latest
 
     steps:

@@ -10,8 +10,7 @@ on:
 
 jobs:
   test:
-    if: |
-      !startsWith(github.event.head_commit.message, 'docs')
+    if: !startsWith(github.event.pull_request.title, 'docs')
     runs-on: ubuntu-latest
 
     steps:

@@ -4,10 +4,14 @@ on:
   push:
     branches:
       - main
+#  # Builds in pull request are only needed for debugging the workflow
+#  pull_request:
+#    branches:
+#      - main
 
 jobs:
   publish-architecture-documentation:
-    if: startsWith(github.event.head_commit.message, 'docs(arc42):')
+    if: startsWith(github.event.pull_request.title, 'docs(arc42):')
     runs-on: ubuntu-latest
 
     steps:
@@ -25,18 +29,21 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          git checkout gh-pages || git checkout --orphan gh-pages
-
-          rm -rf doc/build/html
-          mkdir -p doc/build/html
-          git checkout ${{ github.sha }} -- doc/build/html
-
-          git add doc/build/html
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
-
-          git commit -m "docs(arc42): publish architecture documentation"
-          git push origin gh-pages
+          
+          TEMP_DIR=$(mktemp -d)
+          
+          cp -r doc/build/html/** "$TEMP_DIR"
+          
+          git fetch origin gh-pages || true
+          git checkout --orphan gh-pages
+          
+          git rm -rf .
+          git clean -fxd
+          
+          cp -r "$TEMP_DIR"/** .
+          
+          touch .nojekyll
+          
+          git add .
+          git commit -m "Publish documentation" || echo "No changes to publish"
+          git push --force origin gh-pages

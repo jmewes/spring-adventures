@@ -17,8 +17,11 @@ optional arguments:
 END
 }
 
-while getopts "h" o; do
+while getopts "h p" o; do
   case "${o}" in
+    p)
+      COMPILE_PDF="yes"
+      ;;
     h | *)
       usage
       exit 0
@@ -31,13 +34,14 @@ shift $((OPTIND-1))
 # Main
 ###############################################################################
 
-echo
-echo "Compile HTML"
-echo
 if [[ -d ./build ]]; then
   rm -r ./build
 fi
 mkdir ./build
+
+echo
+echo "Compile HTML"
+echo
 find src -name "img" -exec cp -r {} ./build \;
 docker run -v "$(pwd)":/documents/ asciidoctor/docker-asciidoctor asciidoctor ./src/index.adoc --out-file ./build/index.html -a revdate="$(date +%F)"
 
@@ -45,14 +49,17 @@ TEMP_DIR=$(mktemp -d)
 mv ./build/* "${TEMP_DIR}"
 mv "${TEMP_DIR}" ./build/html
 
-echo
-echo "Compile PDF"
-echo
-find src -name "img" -exec cp -r {} ./src \; > /dev/null
-mkdir ./build/pdf
-docker run -v "$(pwd)":/documents/ -v ./build/pdf:/target asciidoctor/docker-asciidoctor asciidoctor-pdf ./src/index.adoc -a lang=en --out-file /target/architecture-documentation.pdf -a revdate="$(date +%F)"
+if [[ "$COMPILE_PDF" == "yes" ]]; then
+  echo
+  echo "Compile PDF"
+  echo
+  find src -name "img" -exec cp -r {} ./src \; > /dev/null
+  mkdir ./build/pdf
+  docker run -v "$(pwd)":/documents/ -v ./build/pdf:/target asciidoctor/docker-asciidoctor asciidoctor-pdf ./src/index.adoc -a lang=en --out-file /target/architecture-documentation.pdf -a revdate="$(date +%F)"
+fi
 
 # Cleanup of temporarily copied files
+rm -rf "${TEMP_DIR}"
 if [[ -d ./src/img ]]; then
   rm -r ./src/img
 fi

@@ -1,0 +1,278 @@
+@startuml erd
+
+hide circle
+hide empty members
+skinparam linetype ortho
+
+
+entity BillOfMaterials {
+    BillOfMaterialsID
+    ProductAssemblyID
+    ComponentID
+    StartDate
+    EndDate
+    UnitMeasureCode
+    BOMLevel
+    PerAssemblyQty
+    ModifiedDate
+}
+
+entity Culture {
+    CultureID
+    Name
+    ModifiedDate
+}
+
+entity Document {
+    Doc
+    DocumentLevel
+    Title
+    Owner
+    FolderFlag
+    FileName
+    FileExtension
+    Revision
+    ChangeNumber
+    Status
+    DocumentSummary
+    Document
+    rowguid
+    ModifiedDate
+}
+
+entity ProductCategory {
+    ProductCategoryID
+    Name
+    rowguid
+    ModifiedDate
+}
+
+entity ProductSubcategory {
+    ProductSubcategoryID
+    ProductCategoryID
+    Name
+    rowguid
+    ModifiedDate
+}
+
+entity ProductModel {
+    ProductModelID
+    Name
+    CatalogDescription
+    Instructions
+    rowguid
+    ModifiedDate
+}
+
+entity Product {
+    ProductID
+    Name
+    ProductNumber
+    MakeFlag
+    FinishedGoodsFlag
+    Color
+    SafetyStockLevel
+    ReorderPoint
+    StandardCost
+    ListPrice
+    Size
+    SizeUnitMeasureCode
+    WeightUnitMeasureCode
+    Weight
+    DaysToManufacture
+    ProductLine
+    Class
+    Style
+    ProductSubcategoryID
+    ProductModelID
+    SellStartDate
+    SellEndDate
+    DiscontinuedDate
+    rowguid
+    ModifiedDate
+}
+
+entity ProductCostHistory {
+    ProductID
+    StartDate
+    EndDate
+    StandardCost
+    ModifiedDate
+}
+
+entity ProductDescription {
+    ProductDescriptionID
+    Description
+    rowguid
+    ModifiedDate
+}
+
+entity ProductDocument {
+    ProductID
+    Doc
+    ModifiedDate
+}
+
+entity Location {
+    LocationID
+    Name
+    CostRate
+    Availability
+    ModifiedDate
+}
+
+entity ProductInventory {
+    ProductID
+    LocationID
+    Shelf
+    Bin
+    Quantity
+    rowguid
+    ModifiedDate
+}
+
+entity ProductListPriceHistory {
+    ProductID
+    StartDate
+    EndDate
+    ListPrice
+    ModifiedDate
+}
+
+entity Illustration {
+    IllustrationID
+    Diagram
+    ModifiedDate
+}
+
+entity ProductModelIllustration {
+    ProductModelID
+    IllustrationID
+    ModifiedDate
+}
+
+entity ProductModelProductDescriptionCulture {
+    ProductModelID
+    ProductDescriptionID
+    CultureID
+    ModifiedDate
+}
+
+entity ProductPhoto {
+    ProductPhotoID
+    ThumbNailPhoto
+    ThumbnailPhotoFileName
+    LargePhoto
+    LargePhotoFileName
+    ModifiedDate
+}
+
+entity ProductProductPhoto {
+    ProductID
+    ProductPhotoID
+    "primary"
+    ModifiedDate
+}
+
+entity ProductReview {
+    ProductReviewID
+    ProductID
+    ReviewerName
+    ReviewDate
+    EmailAddress
+    Rating
+    Comments
+    ModifiedDate
+}
+
+entity ScrapReason {
+    ScrapReasonID
+    Name
+    ModifiedDate
+}
+
+entity TransactionHistory {
+    TransactionID
+    ProductID
+    ReferenceOrderID
+    ReferenceOrderLineID
+    TransactionDate
+    TransactionType
+    Quantity
+    ActualCost
+    ModifiedDate
+}
+
+entity TransactionHistoryArchive {
+    TransactionID
+    ProductID
+    ReferenceOrderID
+    ReferenceOrderLineID
+    TransactionDate
+    TransactionType
+    Quantity
+    ActualCost
+    ModifiedDate
+}
+
+entity UnitMeasure {
+    UnitMeasureCode
+    Name
+    ModifiedDate
+}
+
+entity WorkOrder {
+    WorkOrderID
+    ProductID
+    OrderQty
+    StockedQty
+    ScrappedQty
+    StartDate
+    EndDate
+    DueDate
+    ScrapReasonID
+    ModifiedDate
+}
+
+entity WorkOrderRouting {
+    WorkOrderID
+    ProductID
+    OperationSequence
+    LocationID
+    ScheduledStartDate
+    ScheduledEndDate
+    ActualStartDate
+    ActualEndDate
+    ActualResourceHrs
+    PlannedCost
+    ActualCost
+    ModifiedDate
+}
+
+BillOfMaterials }o--|| Product : ProductAssemblyID references ProductID
+BillOfMaterials }o--|| Product : ComponentID references ProductID
+BillOfMaterials }o--|| UnitMeasure
+Product }o--|| UnitMeasure : SizeUnitMeasureCode references UnitMeasureCode
+Product }o--|| UnitMeasure : WeightUnitMeasureCode references UnitMeasureCode
+Product }o--|| ProductModel
+Product }o--|| ProductSubcategory
+ProductCostHistory }o--|| Product
+ProductDocument }o--|| Product
+ProductDocument }o--|| Document
+ProductInventory }o--|| Location
+ProductInventory }o--|| Product
+ProductListPriceHistory }o--|| Product
+ProductModelIllustration }o--|| ProductModel
+ProductModelIllustration }o--|| Illustration
+ProductModelProductDescriptionCulture }o--|| ProductDescription
+ProductModelProductDescriptionCulture }o--|| Culture
+ProductModelProductDescriptionCulture }o--|| ProductModel
+ProductProductPhoto }o--|| Product
+ProductProductPhoto }o--|| ProductPhoto
+ProductReview }o--|| Product
+ProductSubcategory }o--|| ProductCategory
+TransactionHistory }o--|| Product
+WorkOrder }o--|| Product
+WorkOrder }o--|| ScrapReason
+WorkOrderRouting }o--|| Location
+WorkOrderRouting }o--|| WorkOrder

@@ -4,9 +4,10 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+#  # Builds in pull request are only needed for debugging the workflow
+#  pull_request:
+#    branches:
+#      - main
 
 jobs:
   publish-architecture-documentation:
@@ -32,13 +33,11 @@ jobs:
           TEMP_DIR=$(mktemp -d)
           
           cp -r doc/build/html/** "$TEMP_DIR"
-          echo "files in temp dir"
-          find "$TEMP_DIR"
           
           git fetch origin gh-pages || true
           git checkout --orphan gh-pages
           
-          rm -rf ./* ./.*
+          rm -rf ./*
           cp -r "$TEMP_DIR"/** .
           
           touch .nojekyll

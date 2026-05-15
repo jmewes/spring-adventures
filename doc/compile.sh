@@ -17,7 +17,7 @@ optional arguments:
 END
 }
 
-while getopts "h v: b:" o; do
+while getopts "h" o; do
   case "${o}" in
     h | *)
       usage

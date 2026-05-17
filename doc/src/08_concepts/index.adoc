@@ -6,3 +6,7 @@ Also see:
 
 - https://docs.arc42.org/section-8/
 - https://www.dokchess.de/en/08_concepts/
+
+include::logbook.adoc[]
+
+

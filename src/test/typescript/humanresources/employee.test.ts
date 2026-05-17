@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert";
 import { client, printResponse } from "../utils.ts";
 import { createPerson } from "../person/person.ts";
-import { Employee } from "./employee.ts";
+import { createEmployee, Employee } from "./employee.ts";
 
 test("create employee", async () => {
   // Arrange
@@ -33,4 +33,22 @@ test("create employee", async () => {
   // Assert
   printResponse(response, JSON.stringify(data));
   assert.strictEqual(response.status, 201);
+});
+
+test("get employee", async () => {
+  // Arrange
+  const employee = await createEmployee();
+
+  // Act
+  const { data, response } = await client.GET("/api/employees/{id}", {
+    params: {
+      path: {
+        id: employee.id ?? 0,
+      },
+    },
+  });
+
+  // Assert
+  printResponse(response, JSON.stringify(data));
+  assert.strictEqual(response.status, 200);
 });

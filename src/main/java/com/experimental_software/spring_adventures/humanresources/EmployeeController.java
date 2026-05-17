@@ -25,10 +25,7 @@ class EmployeeController {
 
   @GetMapping("/api/employees/{id}")
   public ResponseEntity<Employee> getEmployeeById(@PathVariable Integer id) {
-    return employeeRepository
-        .findById(id)
-        .map(ResponseEntity::ok)
-        .orElse(ResponseEntity.notFound().build());
+    return ResponseEntity.of(employeeRepository.findById(id));
   }
 
   @PostMapping("/api/employees")

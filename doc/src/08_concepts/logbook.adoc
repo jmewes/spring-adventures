@@ -1,0 +1,38 @@
+=== Logging of HTTP requests
+
+The https://github.com/zalando/logbook[zalando/logbook] library is being used to log incoming HTTP requests.
+
+For example, the following HTTP request:
+
+[source,bash]
+----
+curl http://localhost:8080/api/employees
+----
+
+produces the following log entry of the request:
+
+[source]
+----
+org.zalando.logbook.Logbook              : Incoming Request: fef4f779626ee773
+Remote: 0:0:0:0:0:0:0:1
+GET http://localhost:8080/api/employees HTTP/1.1
+Accept: */*
+Host: localhost:8080
+User-Agent: curl/8.7.1
+----
+
+and the following log entry for the response:
+
+[source]
+----
+org.zalando.logbook.Logbook              : Outgoing Response: fef4f779626ee773
+Duration: 100 ms
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Sun, 17 May 2026 11:03:08 GMT
+Transfer-Encoding: chunked
+
+[{"birthdate":"1969-01-29","currentflag":true,"gender":"M","hiredate":"2009-01-14","id":2,"jobtitle":"Chief Executive Officer",...
+----
+
+The configuration of the library is in the https://github.com/jmewes/spring-adventures/blob/main/src/main/resources/application.yml[application.yml] properties file.

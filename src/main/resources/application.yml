@@ -26,3 +26,10 @@ logging:
     org.hibernate.type: TRACE
     org.hibernate.orm.jdbc.bind: TRACE
     org.hibernate.orm.jdbc.extract: TRACE
+    org.zalando.logbook: TRACE
+
+logbook:
+  format:
+    style: http
+  write:
+    max-body-size: 127
